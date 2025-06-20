@@ -15,7 +15,7 @@ export function ParentWrapper() {
          if (trimmedEmail === "") {
         setEmailError("Email is required")
         } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
-            setEmailError("Email is invalid")
+            setEmailError("Please provide a valid email address")
         } else {
             setEmailError("")
         }
@@ -25,7 +25,11 @@ export function ParentWrapper() {
     return (
     <>
     <div className="block md:hidden">
-    <MobileLayout />
+    <MobileLayout
+    email={email}
+    emailError={emailError}
+    setEmail={setEmail}
+    handleSubmit={handleSubmit} />
     </div>
     <div className="hidden md:block">
     <DesktopLayout
